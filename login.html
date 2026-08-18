@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Foodie Login</title>
+
+    <link
+        rel="stylesheet"
+        href="login.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    >
+
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <div class="login-box">
+
+        <div class="logo">
+            🍔
+        </div>
+
+        <h2>Welcome to Foodie</h2>
+
+        <p>
+            Login to continue ordering delicious food
+        </p>
+
+
+        <!-- ROLE SELECTION -->
+
+        <div class="role-selection">
+
+            <button
+                type="button"
+                class="role-btn active"
+                onclick="selectRole('user', this)"
+            >
+                <i class="fa fa-user"></i>
+                User
+            </button>
+
+        </div>
+
+
+        <!-- LOGIN FORM -->
+
+        <form id="loginForm">
+
+            <!-- EMAIL -->
+
+            <div class="input-group">
+
+                <i class="fa fa-envelope"></i>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Email ID"
+                    required
+                >
+
+            </div>
+
+
+            <!-- PASSWORD -->
+
+            <div class="input-group">
+
+                <i class="fa fa-lock"></i>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Password"
+                    required
+                >
+
+                <span
+                    class="toggle-password"
+                    onclick="togglePassword()"
+                >
+                    <i class="fa fa-eye"></i>
+                </span>
+
+            </div>
+
+
+            <!-- DELIVERY ADDRESS -->
+
+            <div class="input-group address-group">
+
+                <i class="fa fa-map-marker"></i>
+
+                <textarea
+                    id="address"
+                    placeholder="Enter your delivery address"
+                    rows="3"
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <!-- OPTIONS -->
+
+            <div class="options">
+
+                <label>
+
+                    <input type="checkbox">
+
+                    Remember me
+
+                </label>
+
+
+                <a
+                    href="#"
+                    onclick="forgotPassword(); return false;"
+                >
+                    Forgot Password?
+                </a>
+
+            </div>
+
+
+            <!-- LOGIN BUTTON -->
+
+            <button
+                type="submit"
+                class="login-btn"
+            >
+                Login
+            </button>
+
+        </form>
+
+
+        <!-- DEMO LOGIN -->
+
+        <div class="demo-box">
+
+            <h4>Demo Login</h4>
+
+            <p>
+                <strong>User:</strong>
+                user@foodie.com / 123456
+            </p>
+
+        </div>
+
+
+        <!-- MESSAGE -->
+
+        <p
+            id="loginMessage"
+            class="message"
+        ></p>
+
+    </div>
+
+</div>
+
+
+<script src="login.js"></script>
+
+</body>
+
+</html>

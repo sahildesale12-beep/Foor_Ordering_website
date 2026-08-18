@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Foodie - Food Delivery</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    >
+</head>
+
+<body>
+
+<script>
+    if (!localStorage.getItem("foodieUser")) {
+        window.location.href = "login.html";
+    }
+</script>
+
+<div class="container">
+
+    <!-- ================= LEFT MENU ================= -->
+
+    <aside id="menu">
+
+        <div class="brand-logo">
+            <div class="logo-icon">🍔</div>
+            <h2>Foodie</h2>
+            <p>Delicious Delivered</p>
+        </div>
+
+        <div class="menu-item">
+
+            <a href="#home">
+                <i class="fa fa-home"></i> Home
+            </a>
+
+            <a href="#about">
+                <i class="fa fa-info-circle"></i> About
+            </a>
+
+            <a href="#services">
+                <i class="fa fa-cutlery"></i> Services
+            </a>
+
+            <a href="#cart">
+                <i class="fa fa-shopping-bag"></i> Your Orders
+            </a>
+
+            <a href="#" onclick="showMessage('Wishlist coming soon ❤️'); return false;">
+                <i class="fa fa-heart"></i> Wishlist
+            </a>
+
+            <a href="#" onclick="editAddress(); return false;">
+                <i class="fa fa-map-marker"></i> Address
+            </a>
+
+            <a href="#" onclick="showMessage('Contact: +91 98765 43210'); return false;">
+                <i class="fa fa-phone"></i> Contact
+            </a>
+
+            <a href="#" onclick="showMessage('Need help? Contact our support team.'); return false;">
+                <i class="fa fa-question-circle"></i> Help
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= FOOD SECTION ================= -->
+
+    <main id="food-container">
+
+        <div class="top-header">
+
+            <div>
+                <p class="welcome">Welcome to Foodie 👋</p>
+
+                <h1 id="home">Popular Menu</h1>
+
+                <p class="subtitle">
+                    Fresh food, great taste, delivered to your door.
+                </p>
+            </div>
+
+            <div class="user-info">
+
+                <span id="welcome-user"></span>
+
+                <button
+                    onclick="editAddress()"
+                    class="address-mini-btn"
+                >
+                    📍 Address
+                </button>
+
+                <button
+                    onclick="logout()"
+                    class="logout-btn"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+            <div class="mobile-cart">
+
+                <button onclick="scrollToCart()">
+                    🛒
+                    <span id="cart-count-top">0</span>
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= CATEGORY BUTTONS ================= -->
+
+        <div class="category-menu">
+
+            <button
+                class="category-btn active"
+                onclick="showCategory('all', this)"
+            >
+                🍽️ All
+            </button>
+
+            <button
+                class="category-btn"
+                onclick="showCategory('burger', this)"
+            >
+                🍔 Burger
+            </button>
+
+            <button
+                class="category-btn"
+                onclick="showCategory('pizza', this)"
+            >
+                🍕 Pizza
+            </button>
+
+            <button
+                class="category-btn"
+                onclick="showCategory('biryani', this)"
+            >
+                🍗 Biryani
+            </button>
+
+            <button
+                class="category-btn"
+                onclick="showCategory('pasta', this)"
+            >
+                🍝 Pasta
+            </button>
+
+            <button
+                class="category-btn"
+                onclick="showCategory('drinks', this)"
+            >
+                🥤 Drinks
+            </button>
+
+        </div>
+
+
+        <!-- ================= FOOD CARDS ================= -->
+
+        <div class="menu-container">
+
+            <!-- Cheese Burger -->
+
+            <div class="menu-card burger food-item">
+
+                <img
+                    src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=80"
+                    alt="Cheese Burger"
+                >
+
+                <div class="card-content">
+
+                    <span class="food-tag veg">
+                        VEG
+                    </span>
+
+                    <h3>
+                        Cheese Burger
+                    </h3>
+
+                    <p>
+                        Fresh grilled burger with vegetables and cheese.
+                    </p>
+
+                    <div class="price">
+                        ₹199
+                        <span>₹249</span>
+                    </div>
+
+                    <button class="add-btn">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Italian Pizza -->
+
+            <div class="menu-card pizza food-item">
+
+                <img
+                    src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=900&q=80"
+                    alt="Italian Pizza"
+                >
+
+                <div class="card-content">
+
+                    <span class="food-tag veg">
+                        VEG
+                    </span>
+
+                    <h3>
+                        Italian Pizza
+                    </h3>
+
+                    <p>
+                        Loaded with cheese, vegetables and delicious toppings.
+                    </p>
+
+                    <div class="price">
+                        ₹349
+                        <span>₹399</span>
+                    </div>
+
+                    <button class="add-btn">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Chicken Biryani -->
+
+            <div class="menu-card biryani food-item">
+
+                <img
+                    src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=900&q=80"
+                    alt="Chicken Biryani"
+                >
+
+                <div class="card-content">
+
+                    <span class="food-tag nonveg">
+                        NON-VEG
+                    </span>
+
+                    <h3>
+                        Chicken Biryani
+                    </h3>
+
+                    <p>
+                        Authentic dum biryani served hot with tender chicken.
+                    </p>
+
+                    <div class="price">
+                        ₹249
+                        <span>₹299</span>
+                    </div>
+
+                    <button class="add-btn">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Red Sauce Pasta -->
+
+            <div class="menu-card pasta food-item">
+
+                <img
+                    src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=900&q=80"
+                    alt="Red Sauce Pasta"
+                >
+
+                <div class="card-content">
+
+                    <span class="food-tag veg">
+                        VEG
+                    </span>
+
+                    <h3>
+                        Red Sauce Pasta
+                    </h3>
+
+                    <p>
+                        Delicious pasta with rich creamy red sauce.
+                    </p>
+
+                    <div class="price">
+                        ₹229
+                        <span>₹279</span>
+                    </div>
+
+                    <button class="add-btn">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Cold Drink -->
+
+            <div class="menu-card drinks food-item">
+
+                <img
+                    src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=80"
+                    alt="Cold Drink"
+                >
+
+                <div class="card-content">
+
+                    <span class="food-tag veg">
+                        VEG
+                    </span>
+
+                    <h3>
+                        Cold Drink
+                    </h3>
+
+                    <p>
+                        Refreshing chilled beverage for a perfect meal.
+                    </p>
+
+                    <div class="price">
+                        ₹49
+                        <span>₹69</span>
+                    </div>
+
+                    <button class="add-btn">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Brownie Milkshake -->
+
+            <div class="menu-card drinks food-item">
+
+                <img
+                    src="https://cookilicious.com/wp-content/uploads/2025/01/Brownie-Milkshake-Recipe-20-scaled.jpg"
+                    alt="Brownie Milkshake"
+                >
+
+                <div class="card-content">
+
+                    <span class="food-tag veg">
+                        VEG
+                    </span>
+
+                    <h3>
+                        Brownie Milkshake
+                    </h3>
+
+                    <p>
+                        Thick, creamy chocolate brownie milkshake topped with whipped cream.
+                    </p>
+
+                    <div class="price">
+                        ₹179
+                        <span>₹219</span>
+                    </div>
+
+                    <button class="add-btn">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Classic Mojito -->
+
+            <div class="menu-card drinks food-item">
+
+                <img
+                    src="https://www.pipercooks.com/wp-content/uploads/2024/07/mojito-sq.jpg"
+                    alt="Classic Mojito"
+                >
+
+                <div class="card-content">
+
+                    <span class="food-tag veg">
+                        VEG
+                    </span>
+
+                    <h3>
+                        Classic Mojito
+                    </h3>
+
+                    <p>
+                        Refreshing mint, lime and soda mojito served chilled with ice.
+                    </p>
+
+                    <div class="price">
+                        ₹129
+                        <span>₹159</span>
+                    </div>
+
+                    <button class="add-btn">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Chicken Burger -->
+
+            <div class="menu-card burger food-item">
+
+                <img
+                    src="https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=900&q=80"
+                    alt="Chicken Burger"
+                >
+
+                <div class="card-content">
+
+                    <span class="food-tag nonveg">
+                        NON-VEG
+                    </span>
+
+                    <h3>
+                        Chicken Burger
+                    </h3>
+
+                    <p>
+                        Crispy chicken burger with lettuce and cheese.
+                    </p>
+
+                    <div class="price">
+                        ₹229
+                        <span>₹279</span>
+                    </div>
+
+                    <button class="add-btn">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Margherita Pizza -->
+
+            <div class="menu-card pizza food-item">
+
+                <img
+                    src="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=900&q=80"
+                    alt="Margherita Pizza"
+                >
+
+                <div class="card-content">
+
+                    <span class="food-tag veg">
+                        VEG
+                    </span>
+
+                    <h3>
+                        Margherita Pizza
+                    </h3>
+
+                    <p>
+                        Classic pizza with mozzarella and fresh basil.
+                    </p>
+
+                    <div class="price">
+                        ₹299
+                        <span>₹349</span>
+                    </div>
+
+                    <button class="add-btn">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- White Sauce Pasta -->
+
+            <div class="menu-card pasta food-item">
+
+                <img
+                    src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=900&q=80"
+                    alt="White Sauce Pasta"
+                >
+
+                <div class="card-content">
+
+                    <span class="food-tag veg">
+                        VEG
+                    </span>
+
+                    <h3>
+                        White Sauce Pasta
+                    </h3>
+
+                    <p>
+                        Creamy white sauce pasta with herbs and cheese.
+                    </p>
+
+                    <div class="price">
+                        ₹249
+                        <span>₹299</span>
+                    </div>
+
+                    <button class="add-btn">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= ABOUT ================= -->
+
+        <section id="about" class="info-section">
+
+            <h2>
+                About Foodie
+            </h2>
+
+            <p>
+                Foodie is a simple food delivery website project created using
+                HTML, CSS and JavaScript. Browse food, add items to your cart,
+                change quantities and place a demo order.
+            </p>
+
+        </section>
+
+
+        <!-- ================= SERVICES ================= -->
+
+        <section id="services" class="info-section">
+
+            <h2>
+                Our Services
+            </h2>
+
+            <div class="service-grid">
+
+                <div class="service-box">
+                    🚀
+                    <h3>
+                        Fast Delivery
+                    </h3>
+                    <p>
+                        Get your favorite food delivered quickly.
+                    </p>
+                </div>
+
+                <div class="service-box">
+                    🍴
+                    <h3>
+                        Fresh Food
+                    </h3>
+                    <p>
+                        Quality ingredients and delicious meals.
+                    </p>
+                </div>
+
+                <div class="service-box">
+                    💳
+                    <h3>
+                        Easy Payment
+                    </h3>
+                    <p>
+                        Simple and secure demo checkout system.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= CART ================= -->
+
+    <aside id="cart">
+
+        <div class="cart-header">
+
+            <h1>
+                🛒 Cart
+                <span id="cart-count">0</span>
+            </h1>
+
+            <div class="delivery-address-box">
+
+                <div class="address-box-title">
+
+                    <span>
+                        📍 Delivery Address
+                    </span>
+
+                    <button onclick="editAddress()">
+                        Change
+                    </button>
+
+                </div>
+
+                <p id="saved-address">
+                    Loading address...
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div id="cart-items">
+
+            <div class="empty-cart">
+
+                <div class="empty-icon">
+                    🛒
+                </div>
+
+                <h3>
+                    Your cart is empty
+                </h3>
+
+                <p>
+                    Start adding delicious food!
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div id="cart-total"></div>
+
+    </aside>
+
+</div>
+
+
+<!-- ================= PAYMENT MODAL ================= -->
+
+<div id="payment-modal" class="modal">
+
+    <div class="modal-content">
+
+        <span
+            class="close-modal"
+            onclick="closePaymentModal()"
+        >
+            &times;
+        </span>
+
+        <h2>
+            💳 Checkout & Payment
+        </h2>
+
+        <div class="checkout-address">
+
+            <div class="address-box-title">
+
+                <span>
+                    📍 Delivery Address
+                </span>
+
+                <button onclick="editAddress(true)">
+                    Change
+                </button>
+
+            </div>
+
+            <p id="payment-address">
+                Loading address...
+            </p>
+
+        </div>
+
+        <p class="payment-note">
+            Select a payment method.
+        </p>
+
+
+        <div class="payment-options">
+
+            <button onclick="showUPI()">
+                📱 UPI Payment
+            </button>
+
+            <button onclick="completePayment('Card')">
+                💳 Card
+            </button>
+
+            <button onclick="completePayment('Cash on Delivery')">
+                💵 Cash on Delivery
+            </button>
+
+        </div>
+
+
+        <!-- UPI -->
+
+        <div
+            id="upi-section"
+            class="upi-section"
+        >
+
+            <h3>
+                Scan & Pay with UPI
+            </h3>
+
+            <img
+                id="upi-qr"
+                class="upi-qr"
+                src=""
+                alt="UPI QR Code"
+            >
+
+            <p class="upi-id">
+                UPI ID:
+                <strong id="upi-id-text">
+                    foodie@upi
+                </strong>
+            </p>
+
+            <p class="upi-amount">
+                Amount:
+                <strong id="upi-amount">
+                    ₹0
+                </strong>
+            </p>
+
+            <button
+                class="upi-paid-btn"
+                onclick="completePayment('UPI')"
+            >
+                ✅ I Have Paid
+            </button>
+
+            <small>
+                Demo QR uses a UPI payment link.
+                Replace <strong>foodie@upi</strong>
+                in <code>script.js</code> with your real UPI ID
+                for real payment routing.
+            </small>
+
+        </div>
+
+
+        <!-- SUCCESS -->
+
+        <div
+            id="payment-success"
+            class="payment-success"
+        ></div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= ADDRESS MODAL ================= -->
+
+<div id="address-modal" class="modal">
+
+    <div class="modal-content address-modal-content">
+
+        <span
+            class="close-modal"
+            onclick="closeAddressModal()"
+        >
+            &times;
+        </span>
+
+        <h2>
+            📍 Delivery Address
+        </h2>
+
+        <p>
+            Enter the address where you want your order delivered.
+        </p>
+
+        <textarea
+            id="address-input"
+            class="address-textarea"
+            rows="5"
+            placeholder="House/Flat, Street, Area, City, PIN Code"
+        ></textarea>
+
+        <button
+            class="save-address-btn"
+            onclick="saveAddress()"
+        >
+            Save Address
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
