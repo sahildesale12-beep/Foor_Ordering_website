@@ -1,56 +1,32 @@
-🍔 Foodie — Food Delivery Website
+# 🍔 Foodie — Food Delivery Website
 
-Foodie is a responsive food delivery website where users can browse food,
-add items to cart, manage quantities, enter delivery address,
-and complete demo checkout with UPI QR, Card or Cash on Delivery.
+Foodie is a responsive food delivery website where users can browse food, add items to cart, manage quantities, enter a delivery address, and complete demo checkout with UPI QR, Card or Cash on Delivery.
 
-🚀 Features
+## 🚀 Features
 
-• User Login & Delivery Address
-• Food Menu with Categories
-• Add to Cart & Quantity Management
-• Saved Delivery Address
-• UPI QR, Card & Cash on Delivery
-• Order Confirmation
-• Responsive Design
+- **User Login:** Login with email and password.
+- **Food Menu:** Browse Burger, Pizza, Biryani, Pasta and Drinks.
+- **Shopping Cart:** Add, remove and change food quantities.
+- **Delivery Address:** Save and update delivery address.
+- **Payment:** UPI QR, Card and Cash on Delivery.
+- **Order Confirmation:** Displays payment and delivery details.
+- **Responsive UI:** Works on desktop, tablet and mobile.
 
-🛠️ Tech Stack
+## 🛠️ Tech Stack
 
-Frontend: HTML5, CSS3, JavaScript
-Icons: Font Awesome
-Payment: UPI QR Code API
-Backend: Node.js, Express
-Database: PostgreSQL
+- **Frontend:** HTML5, CSS3, JavaScript
+- **Icons:** Font Awesome
+- **Payment:** UPI QR Code API
+- **Backend:** Node.js, Express
+- **Database:** PostgreSQL
 
-📂 Project Files
+## 📂 Project Files
 
+```text
 index.html
 style.css
 script.js
 login.html
-login.css    
+login.css
 login.js
 README.md
-
-⚡ Getting Started
-
-1. Clone the repository
-git clone https://github.com/YOUR-USERNAME/Food_Ordering_website.git
-2. Open login.html in your browser
-3. Demo Login
-
-Email: user@foodie.com
-Password: 123456
-
-Enter your delivery address and start ordering.
-
-📌 Project Status
-
-Frontend Food Delivery Application
-Includes menu, cart, delivery address, checkout, UPI QR payment and demo order confirmation.
-
-👨‍💻 Author
-
-Sahil Desale
-Atharva Jawale
-Sarvesh Badhe
