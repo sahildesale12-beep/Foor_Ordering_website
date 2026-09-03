@@ -1,0 +1,56 @@
+🍔 Foodie — Food Delivery Website
+
+Foodie is a responsive food delivery website where users can browse food,
+add items to cart, manage quantities, enter delivery address,
+and complete demo checkout with UPI QR, Card or Cash on Delivery.
+
+🚀 Features
+
+• User Login & Delivery Address
+• Food Menu with Categories
+• Add to Cart & Quantity Management
+• Saved Delivery Address
+• UPI QR, Card & Cash on Delivery
+• Order Confirmation
+• Responsive Design
+
+🛠️ Tech Stack
+
+Frontend: HTML5, CSS3, JavaScript
+Icons: Font Awesome
+Payment: UPI QR Code API
+Backend: Node.js, Express
+Database: PostgreSQL
+
+📂 Project Files
+
+index.html
+style.css
+script.js
+login.html
+login.css    
+login.js
+README.md
+
+⚡ Getting Started
+
+1. Clone the repository
+git clone https://github.com/YOUR-USERNAME/Food_Ordering_website.git
+2. Open login.html in your browser
+3. Demo Login
+
+Email: user@foodie.com
+Password: 123456
+
+Enter your delivery address and start ordering.
+
+📌 Project Status
+
+Frontend Food Delivery Application
+Includes menu, cart, delivery address, checkout, UPI QR payment and demo order confirmation.
+
+👨‍💻 Author
+
+Sahil Desale
+Atharva Jawale
+Sarvesh Badhe
